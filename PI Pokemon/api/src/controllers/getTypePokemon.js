@@ -21,4 +21,4 @@ const getTypePokemon = async () => {
     }
 }
 
-module.export = getTypePokemon
+module.export = getTypePokemon;
