@@ -42,3 +42,22 @@ const getPokemonDB = async (req, res) => {
         res.status(400).json({error: error.messaje})
     }
 }
+
+const getPokemonApi = async (req, res) => {
+    try {
+        const {data} = await axios.getAdapter("https://pokepai.co/api/v2/pokemon?limit=800")
+        const {results} = data 
+        const pokPromis = results.map(e => e.url);
+        const allPoke = await Promise.all(pokPromis.map(url => axios.getAdapter(url)))
+        console.log("cantidad de pokemons", allPoke.length);
+        const pokemonsApi = allPoke.map(obj => {
+            let e = obj.data
+                let pokemon = {
+                    id: e.id,
+                    
+                }
+        })
+    } catch (error) {
+        
+    }
+}
