@@ -21,4 +21,4 @@ const postPokemon = async (req, res) => {
     }
 }
 
-module.export = postPokemon;
+module.exports = postPokemon;

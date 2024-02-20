@@ -57,4 +57,4 @@ const getPokeDbId = async (id, res) => {
     }
 }
 
-module.export = getPokemonNameId;
+module.exports = getPokemonNameId;

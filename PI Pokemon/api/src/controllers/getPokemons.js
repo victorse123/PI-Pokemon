@@ -72,4 +72,4 @@ const getPokemonApi = async (req, res) => {
         res.status(400).json({error: error.messaje})
     }
 }
-module.export = getPokemons;
+module.exports = getPokemons;
