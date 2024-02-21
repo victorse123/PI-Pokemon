@@ -21,7 +21,7 @@ const getPokemonDB = async (req, res) => {
             }
         }) 
         console.log(pokemonesDB[0].name);
-        const filterPok = pokemonesDB.map(e => {
+        const filterPoke = pokemonesDB.map(e => {
             return{
                 id: e.id,
                 name: (e.name).charAt(0).toUpperCase() + (e.name).slice(1),
@@ -36,8 +36,8 @@ const getPokemonDB = async (req, res) => {
                 createdDB: e.createdDB
             }
         })
-        console.log(filterPok);
-        return filterPok
+        console.log(filterPoke);
+        return filterPoke
     } catch (error) {
         res.status(400).json({error: error.messaje})
     }
@@ -47,8 +47,8 @@ const getPokemonApi = async (req, res) => {
     try {
         const {data} = await axios.get("https://pokepai.co/api/v2/pokemon?limit=800")
         const {results} = data 
-        const pokPromis = results.map(e => e.url);
-        const allPoke = await Promise.all(pokPromis.map(url => axios.get(url)))
+        const pokePromis = results.map(e => e.url);
+        const allPoke = await Promise.all(pokePromis.map(url => axios.get(url)))
         console.log("cantidad de pokemons", allPoke.length);
         const pokemonsApi = allPoke.map(obj => {
             let e = obj.data
