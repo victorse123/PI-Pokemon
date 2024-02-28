@@ -44,7 +44,7 @@ const getPokeDbId = async (id, res) => {
                     model: Type,
                     attributes: ["name"],
                     through: {attributes: []}
-                }
+                }.attributes.concat.
             }) 
             dataValues.name = (dataValues.name).charAt(0).toUpperCase() + (dataValues.name).slice(1);
             dataValues.types = dataValues.types.map(e => e.name);
