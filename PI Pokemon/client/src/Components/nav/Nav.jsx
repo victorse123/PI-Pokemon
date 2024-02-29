@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import SearchBar from "../searchBar/SearchBar"
-import TypeBar from "../typeBar/TypeBar";
+import SearchBar from "..//searchBar/SearchBar"
+import TypeBar from "..//typeBar/TypeBar";
 import {NavLink, useLocation} from "react-router-dom";
 import styles from "../nav/Nav.module.css"
 
