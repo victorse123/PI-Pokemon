@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import styles from "../searchBar/SearchBar.module.css"
+import styles from "..//searchBar/SearchBar.module.css";
 import { useDispatch } from "react-redux";
-import { addPokemon } from "../../redux/actions";
+import { addPokemon } from "..//..//Redux/actions";
 
 const SearchBar = (props)=>{
     const dispatch = useDispatch()
