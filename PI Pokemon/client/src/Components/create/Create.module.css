@@ -1,0 +1,185 @@
+.divBody{
+    display: flex;
+    justify-content: center;
+}
+
+.containerForm{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.727);
+    border-radius: 20px;
+    margin-top: 15px;
+}
+.types{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inputDiv{
+    display: flex;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    justify-content: space-between
+}
+.errors{
+    color: rgb(0, 255, 0);
+    margin: 0 0 0 0;
+}
+
+.containerForm span {
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #f60808 0%, #fbfb3f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: 0.3s;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.inputDiv input{
+    width: 250px;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: rgba(237, 235, 235, 0.725);
+}
+
+.inputDiv2 {
+    display: flex;
+    height: 40px;
+    width: 250px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.checkBoxHolder {
+    margin: 5px;
+    display: flex;
+  }
+  
+  .checkBox {
+    width: fit-content;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    padding: 2px 8px;
+    background-color: rgba(0, 0, 0, 0.16);
+    border-radius: 0px;
+    color: rgba(255, 255, 255, 0.7);
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: color, background-color, box-shadow;
+    display: flex;
+    height: 32px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px 1px 1px 0px;
+    outline: none;
+    justify-content: center;
+    min-width: 55px;
+  }
+  
+  .checkBox:hover {
+    background:linear-gradient(90deg, #fbfb3f 0%, #f60808 100%);
+    color: rgb(255, 2, 2);
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .checkBox .inner {
+    font-size: 18px;
+    font-weight: 900;
+    pointer-events: none;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: 300ms;
+    transition-property: transform;
+    transform: translateY(0px);
+  }
+  
+  .checkBox:hover .inner {
+    transform: translateY(-2px);
+  }
+  
+ 
+  .checkBoxWrapper:first-of-type .checkBox {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    border-right: 0px;
+  }
+  
+  .checkBoxWrapper:last-of-type .checkBox {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-left: 0px;
+    width: 100px;
+  }
+  
+  .checkBoxInput {
+    display: none;
+    
+  }
+  
+  .checkBoxInput:checked + .checkBoxWrapper .checkBox {
+    background:linear-gradient(90deg, #f60808 0%, #fbfb3f 100%);
+    color: rgb(255, 253, 253);
+    box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
+  }
+  
+  .checkBoxInput:checked + .checkBoxWrapper .checkBox .inner {
+    transform: translateY(-2px);
+  }
+  
+  .checkBoxInput:checked + .checkBoxWrapper .checkBox:hover {
+    background-color:  #fbfb3f 100%;
+    color: aliceblue;
+    box-shadow: rgba(0, 0, 0, 0.26) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.15) 0px 3px 6px 2px;
+  }
+  
+  .checkBoxWrapper .checkBox:hover .inner {
+    transform: translateY(-2px);
+  }
+  
+  .submitBtn {
+    font-size: 15px;
+    padding: 0.5em 2em;
+    border: transparent;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24);
+    background: #34495e;
+    border-radius: 10px 10px 0px 0;
+    transition: 0.3s;
+  }
+  
+  .submitBtn:hover {
+    transition: 0.3s;
+    background: linear-gradient(90deg, #f60808 0%, #fbfb3f 100%);
+    cursor: pointer;
+  }
+  
+  .submitBtn:active {
+    transform: translate(0em, 0.2em);
+  }
+  
+  .submitBtn span {
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #f60808 0%, #fbfb3f 100%);
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s;
+    -webkit-text-stroke-width: 0px;
+    -webkit-text-stroke-color: rgba(0, 0, 0, 0);
+  }
+  
+  .submitBtn:hover span {
+    background: #2E2E2E;
+    /* -webkit-background-clip: text; */
+    -webkit-text-fill-color: transparent;
+    transition: 0.3s;
+  }

@@ -1,0 +1,289 @@
+.link{
+    text-decoration: none;
+    color: inherit;
+   }
+  .card h2{
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+  }
+  .name span {
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: #ff00f2c1 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s;
+    -webkit-text-stroke-width: 1.2px;
+    -webkit-text-stroke-color: rgb(0, 0, 0);
+    z-index: 5;
+    text-shadow: -2px -6px 4px rgba(251, 255, 0, 0.743);
+  }
+  
+  
+  .progresDiv{
+      display: flex;
+      align-items: center;
+      margin: 0px 5px -30px 5px;
+  }
+  
+  .progresDiv progress{
+      width: 250px;
+      padding: 25px;    
+  }
+  .progresDiv p{
+    color: rgb(129, 246, 238);
+    font-size: 12px;
+    font-weight: 500;
+    position: absolute;
+    left: 13px;  
+  }
+  
+  
+  
+  
+  
+  .imgDefault{
+    display: flex;
+    justify-content: center;
+    z-index: 1;    
+    transition: none;
+  }
+  
+  .imgDefault img{    
+    width: 200px;
+    height: 200px;  
+     
+  }
+  .tipes{  
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+  }
+  .tipes img{
+    width: 70px;
+    
+  }
+  .tipes span {
+    font-weight: 800;
+    background: rgba(10, 10, 10, 0.933);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: 0.5s;
+    z-index: 5;
+  }
+  .typeDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  :root {
+      --color1: rgb(0, 0, 0);
+      --color2: rgb(97, 97, 97);
+      --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
+      --poke1: rgb(171, 170, 255);
+      --poke2: #fefa86;
+      --pokefront: url(https://media.istockphoto.com/id/1133058917/es/foto/fondo-blanco-negro-y-rojo-abstracto.jpg?s=170667a&w=0&k=20&c=PA_5G3MqJ9Qo_fcZ7YOiS4s7z7-Xd6LRl4bO7aZBOSw=);
+      
+    }
+    
+    
+    
+    .card {  
+      width: 250px;
+      height: 361px;    
+      position: relative;
+      overflow: hidden;
+      margin: 20px;
+      overflow: hidden;
+      touch-action: none;    
+      border-radius: 15px;
+      box-shadow: 
+        -5px -5px 5px -5px var(--color1), 
+        5px 5px 5px -5px var(--color2), 
+        -7px -7px 10px -5px transparent, 
+        7px 7px 10px -5px transparent, 
+        0 0 5px 0px rgba(255,255,255,0),
+        0 55px 35px -20px rgba(0, 0, 0, 0.5);
+      
+      transition: transform 0.5s ease, box-shadow 0.2s ease;
+      will-change: transform, filter;
+      
+      background-color: #040712;
+      background-image: var(--front);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      transform-origin: center;
+      
+    }
+    
+    .card:hover {
+      box-shadow: 
+        -20px -20px 30px -25px var(--color1), 
+        20px 20px 30px -25px var(--color2), 
+        -7px -7px 10px -5px var(--color1), 
+        7px 7px 10px -5px var(--color2), 
+        0 0 13px 4px rgba(255,255,255,0.3),
+        0 55px 35px -20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .card{
+      --color1: var(--poke1);
+      --color2: var(--poke2);
+      --front: var(--pokefront);
+    }
+    
+    .card::before,
+    .card::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      opacity: .5;
+      mix-blend-mode: color-dodge;
+      transition: all .33s ease;
+    }
+    
+    .card:before {
+      background-position: 50% 50%;
+      background-size: 300% 300%;
+      background-image: linear-gradient(
+        115deg,
+        transparent 0%,
+        var(--color1) 25%,
+        transparent 47%,
+        transparent 53%,
+        var(--color2) 75%,
+        transparent 100%
+      );
+      opacity: .5;
+      filter: brightness(.5) contrast(1);
+      z-index: 1;
+    } 
+    
+    
+    .card:hover {
+      animation: none;
+      transition: box-shadow 0.1s ease-out;
+    }
+    
+    
+    .card:hover:before {
+      animation: none;
+      background-image: linear-gradient(
+        110deg,
+        transparent 25%,
+        var(--color1) 48%,
+        var(--color2) 52%,
+        transparent 75%
+      );
+      background-position: 50% 50%;
+      background-size: 250% 250%;
+      opacity: .2;
+      filter: brightness(.66) contrast(1.33);
+      transition: none;
+    }
+    
+    
+    
+    .card {
+      transition: none;
+      animation: holoCard 12s ease 0s 1;
+    }
+    .card::before { 
+        transition: none;
+        animation: holoGradient 12s ease 0s 1;
+      }
+    
+    .card::after {
+          transition: none;
+          animation: holoSparkle 12s ease 0s 1;
+        } 
+        
+  
+         
+    
+    
+    @keyframes holoSparkle {
+      0%, 100% {
+        opacity: .75; background-position: 50% 50%; filter: brightness(1.2) contrast(1.25);
+      }
+      5%, 8% {
+        opacity: 1; background-position: 40% 40%; filter: brightness(.8) contrast(1.2);
+      }
+      13%, 16% {
+        opacity: .5; background-position: 50% 50%; filter: brightness(1.2) contrast(.8);
+      }
+      35%, 38% {
+        opacity: 1; background-position: 60% 60%; filter: brightness(1) contrast(1);
+      }
+      55% {
+        opacity: .33; background-position: 45% 45%; filter: brightness(1.2) contrast(1.25);
+      }
+    }
+    
+    @keyframes holoGradient {
+      0%, 100% {
+        opacity: 0.5;
+        background-position: 50% 50%;
+        filter: brightness(.5) contrast(1);
+      }
+      5%, 9% {
+        background-position: 100% 100%;
+        opacity: 1;
+        filter: brightness(.75) contrast(1.25);
+      }
+      13%, 17% {
+        background-position: 0% 0%;
+        opacity: .88;
+      }
+      35%, 39% {
+        background-position: 100% 100%;
+        opacity: 1;
+        filter: brightness(.5) contrast(1);
+      }
+      55% {
+        background-position: 0% 0%;
+        opacity: 1;
+        filter: brightness(.75) contrast(1.25);
+      }
+    }
+    
+    @keyframes holoCard {
+      0%, 100% {
+        transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
+      }
+      5%, 8% {
+        transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
+      }
+      13%, 16% {
+        transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
+      }
+      35%, 38% {
+        transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
+      }
+      55% {
+        transform: rotateZ(-3deg) rotateX(-12deg) rotateY(-27deg);
+      }
+    }
+     
+    
+   
+    
+    @media screen and (min-width: 600px) {
+      .cards {
+        flex-direction: row;
+      }
+    }
+    
+    
+    
+   
