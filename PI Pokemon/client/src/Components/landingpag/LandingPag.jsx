@@ -1,11 +1,11 @@
 import React from "react";
-import {useNavigate} from "react-router-dom"
-import Styles from './LadingPag.module.css'
+import {useLocation} from "react-router-dom"
+import Styles from '..//landingpag/LandingPag.module.css'
 import { imageImg } from "..//..//Image/imageImg"
 
 
 const LadingPag = (props)=>{
-    const navigate = useNavigate()
+    const navigate = useLocation()
     const {allPokemon} = props
     
     return(
