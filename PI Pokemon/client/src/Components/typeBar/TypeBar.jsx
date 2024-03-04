@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import Styles from './TypeBar.module.css'
 import { useDispatch, useSelector } from "react-redux";
 import { filterTypePok } from "..//..//Redux/actions/actions";

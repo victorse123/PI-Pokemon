@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router-dom";
 import { addPokDetail } from "..//..//Redux/actions/actions";
@@ -6,7 +6,7 @@ import styles from '../detail/Detail.module.css'
 import { imageTypes } from "..//..//Image/imageTypes";
 import { imageImg } from "..//..//Image/imageImg";
 
-const Detail = (props)=>{
+const Detail = ()=>{
     const {detail} = useSelector((state)=> state)
     const dispatch = useDispatch()
     const navigate = useLocation()
