@@ -19,7 +19,7 @@ import steel from './types/Pokemon_Steel.png';
 import unknown from './types/Pokemon_Unknown.png';
 import water from './types/Pokemon_Water.png';
 
-export const imgTypes = {
+export const imageTypes = {
     bug, 
     dark, 
     dragon, 
