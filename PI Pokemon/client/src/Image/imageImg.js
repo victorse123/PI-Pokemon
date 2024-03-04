@@ -1,7 +1,7 @@
 import loanding from './image/Loading.gif';
-import notImg from './img/notIMG.gif';
-import LOGO from './img/PokLOGO.png';
-import background from './img/background_Pikachu.webp';
-import startVideo from './videos/videoSTART.mp4';
+import notImg from './image/Pokeball.gif';
+import LOGO from './image/LogoPokemon.png';
+import background from './image/Pokemon.gif';
+import startVideo from './video/Start.gif';
 
 export const imgUtil = {loanding, notImg, LOGO, background, startVideo}
