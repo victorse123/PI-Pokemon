@@ -1,15 +1,29 @@
-import React, { useEffect, useState } from "react";
-import {useDispatch, useSelector} from "react-redux"
+// // import React from "react";
+// import { useEffect, useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import styles from "./Create.module.css"
+// import { addAllPokemon, postPokemon } from "..//..//Redux/actions/actions";
+// import { useLocation } from "react-router-dom";
+// import { validate } from "../validate/Validate";
+
+
+// const Create = (props)=>{
+//     const {types} = useSelector((state)=> state)
+//     const dispatch = useDispatch();
+//     const navigate = useLocation();
+
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./Create.module.css"
 import { addAllPokemon, postPokemon } from "..//..//Redux/actions/actions";
 import { useLocation } from "react-router-dom";
 import { validate } from "../validate/Validate";
 
-
-const Create = (prop)=>{
-    const {types} = useSelector((state)=> state)
+const Create = () => {
+    const { types } = useSelector((state) => state);
     const dispatch = useDispatch();
     const navigate = useLocation();
+
     
     const [newPokemon, setNewPokemon] = useState({
         name: '',
@@ -148,16 +162,16 @@ const Create = (prop)=>{
             {errors.imageDefault ? <p className={styles.errors}>{errors.imageDefault}</p> : null}
                 <h2><span>TIPOS:</span></h2>
             <div className={styles.types}>
-            {types?.map(t=>{
-                    return (<div className={styles.checkBoxHolder}>
-                                <input type="checkbox" id={t.name} className={styles.checkBoxInput} onChange={handleType}/>
-                                <label htmlFor={t.name} className={styles.checkBoxWrapper}>
-                                    <div className={styles.checkBox}>
-                                        <div className={styles.inner}>{(t.name).charAt(0).toUpperCase() + (t.name).slice(1)}</div>
-                                    </div>
-                                </label>
-                            </div>)
-            })}
+            {types?.map(t => (
+    <div key={t.name} className={styles.divBody}>
+        <input type="checkbox" id={t.name} className={styles.checkBoxInput} onChange={handleType}/>
+        <label htmlFor={t.name} className={styles.checkBoxWrapper}>
+            <div className={styles.checkBox}>
+                <div className={styles.inner}>{(t.name).charAt(0).toUpperCase() + (t.name).slice(1)}</div>
+            </div>
+        </label>
+    </div>
+))}
             </div>
             <button className={styles.submitBtn} type="submit"><span>Agregar</span></button>
         </form>
@@ -165,4 +179,4 @@ const Create = (prop)=>{
     )
 }
 
-export default Create
+export default Create;
