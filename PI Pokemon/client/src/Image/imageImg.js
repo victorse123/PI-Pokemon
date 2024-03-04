@@ -1,4 +1,4 @@
-import loanding from './img/Loading.gif';
+import loanding from './image/Loading.gif';
 import notImg from './img/notIMG.gif';
 import LOGO from './img/PokLOGO.png';
 import background from './img/background_Pikachu.webp';
