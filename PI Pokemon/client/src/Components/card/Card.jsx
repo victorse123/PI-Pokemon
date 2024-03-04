@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import styles from './Card.module.css'
 import { imageImg } from "..//..//Image/imageImg";
 import { Link } from "react-router-dom";
-import { imageTypes } from "../../Image/imageTypes";
+import { imageTypes } from "..//..//Image/imageTypes";
 
 const Card = (props)=>{
     let imageDefault = '';  
