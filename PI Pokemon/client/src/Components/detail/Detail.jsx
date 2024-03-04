@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
-import { addPokDetail } from "../../redux/actions";
+import { useLocation, useParams } from "react-router-dom";
+import { addPokDetail } from "..//..//Redux/actions/actions";
 import styles from '../detail/Detail.module.css'
 import { imageTypes } from "..//..//Image/imageTypes";
 import { imageImg } from "..//..//Image/imageImg";
@@ -9,15 +9,13 @@ import { imageImg } from "..//..//Image/imageImg";
 const Detail = (props)=>{
     const {detail} = useSelector((state)=> state)
     const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const navigate = useLocation()
     const {idDetail} = useParams()
         
     useEffect(()=>{
         console.log(dispatch(addPokDetail(idDetail)));        
     },[dispatch, idDetail])   
-    
-   
-     
+         
     return(
     <div className={styles.cont}>
             { !detail.name ? (<div><img src={imageImg.loanding} alt="" /></div>) : (<>
