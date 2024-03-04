@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import styles from "./Create.module.css"
 import { addAllPokemon, postPokemon } from "..//..//Redux/actions/actions";
-import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { validate } from "../validate/Validate";
+
 
 const Create = (prop)=>{
     const {types} = useSelector((state)=> state)
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const navigate = useLocation();
     
     const [newPokemon, setNewPokemon] = useState({
         name: '',
