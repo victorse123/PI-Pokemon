@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_POKEMON_DETAIL, FILTER_DB, FILTER_TYPE, GET_ALLPOKEMON, GET_POKEMON_NAME, GET_POKEMON_TYPES, ORDER_ATAQUE, ORDER_NAME, POST_POKEMON, RESET_DETAIL } from '..//actionType/ActionType';
+import { ADD_POKEMON_DETAIL, FILTER_DB, FILTER_TYPE, GET_ALLPOKEMON, GET_POKEMON_NAME, GET_POKEMON_TYPES, ORDER_ATAQUEPOKE, ORDER_NAMEPOKE, POST_POKEMON, RESET_DETAIL } from '..//actionType/ActionType';
 
 
 export function addAllPokemon(){
@@ -38,7 +38,7 @@ export function postPokemon(newPoke){
       alert ('Verificar si Pokemon ya Existe')
     }
   }   
-};
+}
 
 export function addPokemon(name){
   const endpoint = 'http://localhost:3001/pokemon?name='+name;
@@ -72,14 +72,14 @@ export function addPokDetail(id){
 
 export function orderNamePok(payload) {
   return {
-    type: ORDER_NAME,
+    type: ORDER_NAMEPOKE,
     payload
-  };
-};
+  }
+}
 
 export function orderAtackPok(payload){
   return{
-    type: ORDER_ATAQUE,
+    type: ORDER_ATAQUEPOKE,
     payload
   }
 }

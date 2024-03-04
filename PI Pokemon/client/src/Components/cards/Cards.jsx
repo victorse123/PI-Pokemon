@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import Card from "../card/Card";
 import styles from './Cards.module.css'
 import { Pagination } from "../pagination/Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import { filterDB, orderAtackPok, orderNamePok, resetDetail } from "../../redux/actions";
+import { filterDB, orderAtackPok, orderNamePok, resetDetail } from "../../redux/actions/actions";
 
 
 const Cards = (props)=>{
