@@ -5,8 +5,8 @@ import {
     GET_ALLPOKEMON,
     GET_POKEMON_NAME,
     GET_POKEMON_TYPES,
-    ORDER_ATAQUE,
-    ORDER_NAME,
+    ORDER_ATAQUEPOKE,
+    ORDER_NAMEPOKE,
     POST_POKEMON,
     RESET_DETAIL,
     } from '..//actionType/ActionType';
@@ -51,7 +51,7 @@ import {
           ...state,
           types: payload,
         }
-      case ORDER_NAME:
+      case ORDER_NAMEPOKE:
         let orderName = [...state.pokemon].sort((a, b) => {
           if (a.name< b.name) return payload === 'asc' ? -1 : 1;
           if (a.name> b.name) return payload === 'asc' ? 1 : -1;
@@ -61,7 +61,7 @@ import {
           ...state,
           pokemon: payload === 'name' ? state.allPokemon : orderName,
         };
-      case ORDER_ATAQUE:      
+      case ORDER_ATAQUEPOKE:      
         const orderAtaque = [...state.pokemon].sort((a,b)=> payload === 'mayorAtaque' ? b.stroke-a.stroke : a.stroke-b.stroke );
         return {
           ...state,
