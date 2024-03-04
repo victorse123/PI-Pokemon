@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
@@ -39,13 +40,13 @@
 
 import React, { useEffect, useState} from 'react';
 import Nav from './components/nav/Nav.jsx'
-import LadingPag from './components/ladingPag/LadingPag';
+import LadingPag from './components/landingpag/LandingPag.jsx';
 import Cards from "./components/cards/Cards.jsx"
 import Create from "./components/create/Create.jsx"
 import { Route, Routes, useLocation} from 'react-router-dom';
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { addAllPokemon, addAllTypes } from './redux/actions/index.js';
+import { addAllPokemon, addAllTypes } from './Redux/actions/actions.js';
 import Detail from './components/detail/Detail.jsx';
 
 function App() {
