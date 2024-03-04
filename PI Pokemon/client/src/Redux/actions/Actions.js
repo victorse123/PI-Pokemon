@@ -14,7 +14,7 @@ export function addAllPokemon(){
 }
 
 export function addAllTypes(){
-  const endpoint = 'http://localhost:3001/tipo'
+  const endpoint = 'http://localhost:3001/tipo' 
   return async function (dispatch){
     let {data} = await axios(endpoint)
     console.log(data);
@@ -70,14 +70,14 @@ export function addPokDetail(id){
   }
 }
 
-export function orderNamePok(payload) {
+export function orderNamePoke(payload) {
   return {
     type: ORDER_NAMEPOKE,
     payload
-  }
+  };
 }
 
-export function orderAtackPok(payload){
+export function orderAtackPoke(payload){
   return{
     type: ORDER_ATAQUEPOKE,
     payload

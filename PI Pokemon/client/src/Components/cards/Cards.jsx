@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import Card from "../card/Card";
 import styles from './Cards.module.css'
-import { Pagination } from "../pagination/Pagination";
+import { Pagination } from "..//pagination/Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import { filterDB, orderAtackPok, orderNamePok, resetDetail } from "../../redux/actions/actions";
+import { filterDB, orderAtackPoke, orderNamePoke, resetDetail } from "..//..//Redux/actions/actions"
 
 
 const Cards = (props)=>{
@@ -29,14 +29,14 @@ const Cards = (props)=>{
     
     const handleOrderName = (e)=>{
         e.preventDefault();
-        dispatch(orderNamePok(e.target.value));
+        dispatch(orderNamePoke(e.target.value));
         setOrder(e.target.value);
         setPagina(1)
     }
     
     const handleOrderAtaque = (e)=>{
         e.preventDefault()
-        dispatch(orderAtackPok(e.target.value))
+        dispatch(orderAtackPoke(e.target.value))
         setAtack(e.target.value)
         setPagina(1)
     }
@@ -93,7 +93,7 @@ const Cards = (props)=>{
             </div>
             <div>
                {pokemon.length > 12 && <Pagination pagina={pagina} setPagina={setPagina} maximo={maximo}/>}
-               <p>@mnlencina</p>
+               <p>@victorse123</p>
             </div>
             
         </div>
