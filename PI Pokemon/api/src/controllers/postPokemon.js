@@ -55,7 +55,13 @@ const postPokemon = async (req, res) => {
     } catch (error) {
         console.error('Error en postPokemon:', error); // Log de error
 
-        // Enviar una respuesta de error al cliente
+        // Verificar si el error es de duplicidad de clave única
+        if (error.name === 'SequelizeUniqueConstraintError') {
+            // Enviar una respuesta al cliente indicando que ya existe un Pokemon con ese nombre
+            return res.status(400).json({ message: 'Ya existe un Pokemon con ese nombre' });
+        }
+
+        // Enviar una respuesta de error al cliente para otros tipos de errores
         res.status(500).json({ message: 'Error al crear el Pokemon', error: error.message });
     }
 };
