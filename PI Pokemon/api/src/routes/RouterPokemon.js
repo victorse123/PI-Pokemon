@@ -6,6 +6,7 @@ const {Type} = require("../db");
 
 const router = Router();
 router.get("/", async (req, res) => {
+    console.log('Ruta "/pokemon" alcanzada');
     const {name} = req.query
     try {
         if(name) {
