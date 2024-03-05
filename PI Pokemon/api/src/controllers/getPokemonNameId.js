@@ -66,10 +66,13 @@ const getPokemonNameId = async (req, res) => {
     let { id, name } = req.params; // Corrección aquí
     let urlGet;
     try {
+        console.log('Iniciando getPokemonNameId'); // Log de inicio
+
         if (id) {
             if (id.length > 4) {
-                console.log("ingresa a buscarlo en la DB");
+                console.log('Buscando en la DB'); // Log específico para búsqueda en la DB
                 const pokeDb = await getPokeDbId(id);
+                console.log('Resultado de la DB:', pokeDb); // Log del resultado de la DB
                 return res.json(pokeDb); // Añadido retorno aquí
             }
             urlGet = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -77,6 +80,7 @@ const getPokemonNameId = async (req, res) => {
             urlGet = `https://pokeapi.co/api/v2/pokemon/${name}`;
         }
 
+        console.log('Realizando solicitud a la API:', urlGet); // Log de la solicitud a la API
         const { data } = await axios.get(urlGet);
 
         const pokemon = {
@@ -91,10 +95,10 @@ const getPokemonNameId = async (req, res) => {
             imageDefault: data.sprites.other.dream_world.front_default,
             types: data.types.map((t) => t.type.name),
         };
-        console.log(pokemon);
+        console.log('Pokemon obtenido:', pokemon); // Log del Pokemon obtenido
         return res.json(pokemon); // Añadido retorno aquí
     } catch (error) {
-        console.error(error);
+        console.error('Error en getPokemonNameId:', error); // Log de error
         res.status(404).json({ error: error.message });
     }
 };
