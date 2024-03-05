@@ -80,10 +80,13 @@ const { Pokemon, Type } = require("../db");
 
 const getPokemons = async (req, res) => {
     try {
+        console.log('Entrando en getPokemons');
         const pokApi = await getPokemonApi();
         const pokDb = await getPokemonDB();
+        console.log('Salida de getPokemons');
         return pokApi.concat(pokDb);
     } catch (error) {
+        console.log('Error en getPokemons:', error);
         res.status(400).json({ error: error.message });
     }
 };
@@ -97,7 +100,10 @@ const getPokemonDB = async (req, res) => {
                 through: { attributes: [] },
             },
         });
-        console.log(pokemonesDB[0].name);
+
+        // Agregar logs para rastreo
+        console.log("Pokemones de la base de datos:", pokemonesDB);
+
         const filterPoke = pokemonesDB.map((e) => {
             return {
                 id: e.id,
@@ -108,12 +114,15 @@ const getPokemonDB = async (req, res) => {
                 speed: e.speed,
                 height: e.height,
                 weight: e.weight,
-                imageDefault: e.imageDefault, // Corrección aquí
+                imageDefault: e.imageDefault, // No se necesita corrección aquí
                 types: e.types.map((t) => t.name),
                 createdDB: e.createdDB,
             };
         });
-        console.log(filterPoke);
+
+        // Agregar logs para rastreo
+        console.log("Pokemones filtrados:", filterPoke);
+
         return filterPoke;
     } catch (error) {
         res.status(400).json({ error: error.message });
