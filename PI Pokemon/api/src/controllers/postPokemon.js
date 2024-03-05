@@ -28,8 +28,11 @@ const { Pokemon } = require("../db");
 
 const postPokemon = async (req, res) => {
     try {
+        console.log('Iniciando postPokemon'); // Log de inicio
+
         let { name, life, stroke, defending, speed, height, weight, imageDefault } = req.body;
-        // Carga el Pokemon creado a la database (DB)
+
+        console.log('Creando Pokemon en la base de datos'); // Log de creación en la base de datos
         let pokeCreated = await Pokemon.create({
             name,
             life,
@@ -40,10 +43,12 @@ const postPokemon = async (req, res) => {
             weight,
             imageDefault
         });
-        return { pokeCreated };
+
+        console.log('Pokemon creado:', pokeCreated); // Log del Pokemon creado
+        return res.status(201).send("Pokemon creado correctamente"); // Añadido retorno aquí
     } catch (error) {
+        console.error('Error en postPokemon:', error); // Log de error
         res.status(404).json({ error: error.message });
-        console.log(error);
     }
 };
 
