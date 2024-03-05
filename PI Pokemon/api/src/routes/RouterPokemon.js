@@ -46,14 +46,13 @@ router.post("/", async (req, res) => {
         // Se asocia el Pokemon a la database (DB)
         // Si postPokemon maneja la asociación, esta línea puede no ser necesaria aquí
         // pokeCreated.addType(typesDb);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-        console.log(error);
-        return; // Importante agregar un return para salir de la función después de enviar la respuesta de error
-    }
 
-    // Envía la respuesta de éxito solo una vez, fuera del bloque try-catch
-    res.status(201).send("Pokemon creado correctamente");
+        // Envía la respuesta de éxito solo una vez, fuera del bloque try-catch
+        res.status(201).send("Pokemon creado correctamente");
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: error.message });
+    }
 });
 
 module.exports = router;
