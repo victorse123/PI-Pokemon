@@ -62,7 +62,7 @@ const postPokemon = async (req, res) => {
         }
 
         // Enviar una respuesta de error al cliente para otros tipos de errores
-        res.status(500).json({ message: 'Error al crear el Pokemon', error: error.message });
+        return res.status(500).json({ message: 'Error al crear el Pokemon', error: error.message });
     }
 };
 
