@@ -31,7 +31,7 @@ const postPokemon = async (req, res) => {
         console.log('Iniciando postPokemon'); // Log de inicio
 
         // Extraer datos del cuerpo de la solicitud
-        let { name, life, stroke, defending, speed, height, weight, imageDefault } = req.body;
+        let { name, life, stroke, defending, speed, height, weight, imageDefault } = req.body || {};
 
         console.log('Creando Pokemon en la base de datos'); // Log de creación en la base de datos
 

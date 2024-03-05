@@ -33,18 +33,23 @@ router.get("/:id", async (req, res) =>{
 });
 
 router.post("/", async (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
     try {
         let newPoke = req.body;
-        let {pokeCreated} = await postPokemon(newPoke)
-        console.log(pokeCreated);
+        // Llama a la función postPokemon directamente
+        await postPokemon(newPoke, res);
+        // No necesitas desestructurar pokeCreated aquí ya que no se retorna así en postPokemon
+        // console.log(pokeCreated);
+
         // Busca un tipo de pokemon en la database (DB)
-        let typesDb = await Type.findAll({ where: {name: newPoke.type } });
+        let typesDb = await Type.findAll({ where: { name: newPoke.type } });
         // Se asocia el Pokemon a la database (DB)
-        pokeCreated.addType(typesDb);
+        // Si postPokemon maneja la asociación, esta línea puede no ser necesaria aquí
+        // pokeCreated.addType(typesDb);
+
         res.status(201).send("Pokemon creado correctamente");
     } catch (error) {
-        res.status(500).json({error: error.messaje})
+        res.status(500).json({ error: error.message });
         console.log(error);
     }
 });
