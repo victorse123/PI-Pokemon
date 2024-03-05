@@ -14,7 +14,7 @@ const LadingPag = (props)=>{
         
 
             <video autoPlay playsInline muted loop>
-                <source src={imageImg.startVideo} type="video/mp4"/>
+                <source src={imageImg.startVideo} type="video/Start"/>
             </video>
             
             <div className={Styles.imgs}>
