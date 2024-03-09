@@ -1,11 +1,11 @@
 // import React from "react";
-import {useLocation} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import Styles from '..//landingpag/LandingPag.module.css'
 import { imageImg } from "../../Image/imageImg"
 
 
 const LadingPag = (props)=>{
-    const navigate = useLocation()
+    const navigate = useNavigate()
     const {allPokemon} = props
     
     return(
@@ -14,7 +14,7 @@ const LadingPag = (props)=>{
         
 
             <video autoPlay playsInline muted loop>
-                <source src={imageImg.startVideo} type="video/Start"/>
+                <source src={imageImg.startVideo} type="video/mp4"/>
             </video>
             
             <div className={Styles.imgs}>
