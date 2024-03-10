@@ -57,15 +57,17 @@
     margin: 10px;
 }
 .cardsDiv { 
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-    perspective: 2000px;
-    position: relative;
-    z-index: 1;
-    transform: translate3d(0.1px, 0.1px, 0.1px );
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  perspective: 2000px;
+  position: relative;
+  padding: 10px 250px 20px;
+  width: 1500px;
+  z-index: 1;
+  transform: translate3d(0.1px, 0.1px, 0.1px );
+  gap: 70px;
 }
 .switch {
     position: relative;
