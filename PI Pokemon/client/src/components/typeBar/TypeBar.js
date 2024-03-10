@@ -5,15 +5,20 @@ import { filterTypePok } from "../../Redux/actions/actions";
 
 
 const TypeBar = (props)=>{
+    // Extraer setPagina de props y types del estado usando useSelector
     const {setPagina} = props
     const {types} = useSelector((state)=> state)
     const dispatch = useDispatch()
     
-    
+    // Manejar el cambio de tipo de Pokemon
     const handlerType = (e)=>{
         console.log(e.target.value.toLowerCase());
+        // Despachar la acción para filtrar por tipo
         dispatch(filterTypePok(e.target.value))
+        // Reiniciar la página a 1 después de seleccionar un tipo
         setPagina(1)
+
+        // Desmarcar el tipo después de 10 segundos
         const checkbox1 = document.getElementById(e.target.value)
         setTimeout(() => {
             if(checkbox1.checked) checkbox1.checked = false
@@ -24,6 +29,7 @@ const TypeBar = (props)=>{
     <div>   
         <div action="" className={Styles.container}>
         <h3>Tipo de Pokemon:</h3>
+         {/* Opción para mostrar todos los tipos */}
         <input
                         className={Styles.inputBtn}
                         onChange={handlerType} 
@@ -39,6 +45,7 @@ const TypeBar = (props)=>{
                         <span className={Styles.span}></span>
                         <span className={Styles.txt}>TODOS</span>
                     </label>
+         {/* Renderizar opciones para cada tipo */}           
         {types?.map(t=>{
             return (<div key={t.id}>
                     <input
