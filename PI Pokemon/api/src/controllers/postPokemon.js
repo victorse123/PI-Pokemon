@@ -1,69 +1,25 @@
-// const {Pokemon} = require("../db");
-
-// const postPokemon = async (req, res) => {
-//     try {
-//         let {name, life, stroke, defending, speed, height, weight, imageDefault} = req;
-//         // Carga el Pokemon creado a la database (DB)
-//         let pokeCreated = await Pokemon.create({
-//             name, 
-//             life, 
-//             stroke, 
-//             defending, 
-//             speed, 
-//             height, 
-//             weight, 
-//             imageDefault
-//         });
-//         return {pokeCreated}
-//     } catch (error) {
-//         res.status(404).json({error: error.messaje})
-//         console.log(error);
-//     }
-// }
-
-// module.exports = postPokemon;
-
-
-const { Pokemon } = require("../db");
+const {Pokemon} = require("../db");
 
 const postPokemon = async (req, res) => {
     try {
-        console.log('Iniciando postPokemon'); // Log de inicio
-
-        // Extraer datos del cuerpo de la solicitud
-        let { name, life, stroke, defending, speed, height, weight, imageDefault } = req.body || {};
-
-        console.log('Creando Pokemon en la base de datos'); // Log de creación en la base de datos
-
-        // Crear el Pokemon en la base de datos
+        let {name, life, stroke, defending, speed, height, weight, imageDefault} = req;
+        // Carga el Pokemon creado a la database (DB)
         let pokeCreated = await Pokemon.create({
-            name,
-            life,
-            stroke,
-            defending,
-            speed,
-            height,
-            weight,
+            name, 
+            life, 
+            stroke, 
+            defending, 
+            speed, 
+            height, 
+            weight, 
             imageDefault
         });
-
-        console.log('Pokemon creado:', pokeCreated); // Log del Pokemon creado
-
-        // Enviar una respuesta al cliente indicando que la creación fue exitosa
-        return res.status(201).json({ message: 'Pokemon creado correctamente', pokemon: pokeCreated });
-
+        return {pokeCreated}
     } catch (error) {
-        console.error('Error en postPokemon:', error); // Log de error
-
-        // Verificar si el error es de duplicidad de clave única
-        if (error.name === 'SequelizeUniqueConstraintError') {
-            // Enviar una respuesta al cliente indicando que ya existe un Pokemon con ese nombre
-            return res.status(400).json({ message: 'Ya existe un Pokemon con ese nombre' });
-        }
-
-        // Enviar una respuesta de error al cliente para otros tipos de errores
-        return res.status(500).json({ message: 'Error al crear el Pokemon', error: error.message });
+        res.status(404).json({error: error.messaje})
+        console.log(error);
     }
-};
+}
 
 module.exports = postPokemon;
+
