@@ -108,7 +108,7 @@
     ORDER_NAMEPOKE,
     POST_POKEMON,
     RESET_DETAIL,
-  } from '..//actionType/ActionType';
+  } from '../actions/actions';
   
   const initialState = {
     pokemon: [],
@@ -196,4 +196,9 @@
       default:
         return { ...state };
     }
+
+
+
   }
+
+
