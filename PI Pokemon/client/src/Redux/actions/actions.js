@@ -1,7 +1,19 @@
+// Importación de módulos y librerías necesarias
 import axios from 'axios';
-import { ADD_POKEMON_DETAIL, FILTER_DB, FILTER_TYPE, GET_ALLPOKEMON, GET_POKEMON_NAME, GET_POKEMON_TYPES, ORDER_ATAQUEPOKE, ORDER_NAMEPOKE, POST_POKEMON, RESET_DETAIL } from '..//actionType/ActionType';
 
+// Definición de constantes para tipos de acciones
+export const ADD_POKEMON_DETAIL = 'ADD_POKEMON_DETAIL';
+export const FILTER_DB = 'FILTER_DB';
+export const FILTER_TYPE = 'FILTER_TYPE';
+export const GET_ALLPOKEMON = 'GET_ALLPOKEMON';
+export const GET_POKEMON_NAME = 'GET_POKEMON_NAME';
+export const GET_POKEMON_TYPES = 'GET_POKEMON_TYPES';
+export const ORDER_ATAQUEPOKE = 'ORDER_ATAQUEPOKE';
+export const ORDER_NAMEPOKE = 'ORDER_NAMEPOKE';
+export const POST_POKEMON = 'POST_POKEMON';
+export const RESET_DETAIL = 'RESET_DETAIL';
 
+// Función asíncrona para obtener la lista de pokemon
 export function addAllPokemon(){
   const endpoint = 'http://localhost:3001/pokemon'
   return async function (dispatch){
@@ -55,19 +67,43 @@ export function addPokemon(name){
   }
 }
 
-export function addPokDetail(id){
-  const endpoint = 'http://localhost:3001/pokemon/'+id;
+// export function addPokDetail(id){
+//   const endpoint = 'http://localhost:3001/pokemon/'+id;
+//   return async (dispatch) => {
+//     try {
+//       const {data} = await axios.get(endpoint)
+//         return dispatch({
+//           type: ADD_POKEMON_DETAIL,
+//           payload: data
+//         })      
+//     } catch (error) {
+//       console.log(error.message);
+//     }
+//   }
+// }
+
+export function addPokDetail(id) {
   return async (dispatch) => {
+    const endpoint = `http://localhost:3001/pokemon/${id}`;
+
     try {
-      const {data} = await axios.get(endpoint)
-        return dispatch({
-          type: ADD_POKEMON_DETAIL,
-          payload: data
-        })      
+      const response = await axios.get(endpoint);
+      const pokemonDetail = response.data;
+
+      dispatch({
+        type: ADD_POKEMON_DETAIL,
+        payload: pokemonDetail,
+      });
     } catch (error) {
-      console.log(error.message);
+      console.error('Error fetching Pokemon details:', error.message);
+
+      // Puedes agregar un dispatch para manejar el error en Redux si es necesario
+      // dispatch({
+      //   type: ERROR_FETCHING_POKEMON_DETAILS,
+      //   payload: error.message,
+      // });
     }
-  }
+  };
 }
 
 export function orderNamePoke(payload) {
@@ -104,3 +140,4 @@ export function resetDetail(payload){
     payload
   }
 }
+
