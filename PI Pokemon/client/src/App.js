@@ -43,7 +43,7 @@ import Nav from './components/nav/Nav.js'
 import LadingPag from './components/landingpag/LandingPag.js';
 import Cards from "./components/cards/Cards.js"
 import Create from "./components/create/Create.js"
-import { Route, Routes, useLocation} from 'react-router-dom';
+import { Route, Switch, useLocation} from 'react-router-dom';
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAllPokemon, addAllTypes } from './Redux/actions/actions.js';
@@ -63,12 +63,12 @@ function App() {
   return (
     <div className="appDiv">
       {location.pathname !== '/' && <Nav setPagina={setPagina}/>}
-      <Routes>
+      <Switch>
         <Route path="/" element={<LadingPag allPokemon={allPokemon}/>} />
         <Route path="/home"  element={<Cards pagina={pagina} setPagina={setPagina}/>}/>
         <Route path="/create" element={<Create/>} />
         <Route path='detail/:idDetail' element={<Detail/>} />
-      </Routes>
+      </Switch>
     </div>
   );
 }

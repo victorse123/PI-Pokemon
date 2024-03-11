@@ -2,7 +2,7 @@
 const stringRegExp = /^[a-z-]{1,20}$/;
 // const urlRegExp = /(http|https?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_.~#?&//=]*)/ ;
 
-export const validate =({name, life,stroke,defending, speed, height, weight, imageDefault})=>{
+export const validate =({name, stroke, defending, speed, height, weight})=>{
     
     const errors ={};
         

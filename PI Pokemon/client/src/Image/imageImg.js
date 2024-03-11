@@ -1,6 +1,6 @@
 import loanding from './image/Loading.gif';
 import notImg from './image/Pokeball.gif';
-import LOGO from './image/LogoPokemon.png';
+import LOGO from './image/PokLOGO.png';
 import background from './image/Pokemon.gif';
 import startVideo from './video/Start.gif';
 
