@@ -1,4 +1,4 @@
-import loanding from './image/Loading.gif';
+import loanding from './image/notIMG.gif';
 import notImg from './image/Pokeball.gif';
 import LOGO from './image/PokLOGO.png';
 import background from './image/Pokemon.gif';
