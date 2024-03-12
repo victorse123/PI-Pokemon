@@ -4,18 +4,25 @@ import styles from './Card.module.css'
 import { imageImg } from "../../Image/imageImg";
 import { Link } from "react-router-dom";
 import { imageTypes } from "../../Image/imageTypes";
+import { useDispatch } from "react-redux";
+import { addPokDetail } from "../../Redux/actions/actions";
 
 const Card = (props) => {
     let imageDefault = '';
-  
+    const dispatch = useDispatch()  
+
+    const onDetail= (id) => {
+      dispatch(addPokDetail(id))
+    }
+    
     !props.imageDefault
       ? (imageDefault = props.imageF)
       : (imageDefault = props.imageDefault);
   
     return (
       <>
-        <Link to={`/detail/${props.id}`} className={styles.link}>
-          <div className={styles.card}>
+        <Link to={`/detail/${props.id}`} className={styles.link} >
+          <div onClick={ () => onDetail(props.id)} className={styles.card}>
             <div className={styles.imgDefault}>
               {!imageDefault ? (
                 <img src={imageImg.notImg} alt="" />

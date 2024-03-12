@@ -6,30 +6,44 @@ const {Type} = require("../db");
 
 const router = Router();
 router.get("/", async (req, res) => {
-    console.log('Ruta "/pokemon" alcanzada');
+
     const {name} = req.query
-    console.log(name)
     try {
         if(name) {
-            const poke = await getPokemonNameId(name)
-            return res.status(200).json(poke)
+            const poke = await getPokemonNameId({name})
+            return res.json(poke)
         } else {
             console.log("paso por All");
             const pokemons = await getPokemons()
-            return res.status(200).json(pokemons)
+            return res.json(pokemons)
         }
     } catch (error) {
         res.status(500).json({error: error.messaje})
     }
 });
 
-
+// router.get('/:name', async (req, res) => {
+//     const { name } = req.params;
+  
+//     try {
+//       // Lógica para buscar en la base de datos o hacer una llamada a la API
+//       const pokemon = await getPokemonByName(name);
+  
+//       // Envía la respuesta al cliente
+//       res.status(200).json(pokemon);
+//     } catch (error) {
+//       console.error('Error en la búsqueda del Pokémon:', error);
+//       res.status(500).json({ error: 'Error en la búsqueda del Pokémon' });
+//     }
+//   });
 
 router.get("/:id", async (req, res) =>{
+   
     const {id} = (req.params);
+  
     try {
-        const pokeID = await getPokemonNameId({id})
-        res.json(pokeID)
+        const pokeID = await getPokemonNameId(id)
+        res.status(200).json(pokeID)
     } catch (error) {
         res.status(500).json({error: error.messaje})
     }

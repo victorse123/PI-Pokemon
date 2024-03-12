@@ -1,7 +1,7 @@
-import { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useParams } from "react-router-dom";
-import { addPokDetail } from "../../Redux/actions/actions";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import styles from '../detail/Detail.module.css'
 import { imageTypes } from "../../Image/imageTypes";
 import { imageImg } from "../../Image/imageImg";
@@ -9,19 +9,12 @@ import { imageImg } from "../../Image/imageImg";
 const Detail = (props)=>{
     // Obtiene el dispatch de Redux
     const dispatch = useDispatch()  
-
      // Obtiene la información del estado utilizando useSelector
-    const {detail} = useSelector((state)=> state.detail)
-    
+    const detail = useSelector((state)=> state.detail)
     // Obtiene el ID de los parámetros de la URL
-    const {idDetail} = useParams();
+    const navigate = useNavigate()
 
-    const navigate = useLocation()
-
-    // Dispara la acción para obtener detalles del pokemon al montar o actualizar el componente
-    useEffect(()=>{
-        console.log(dispatch(addPokDetail(idDetail)));        
-    },[dispatch, idDetail])   
+    const toUpperCase = useLocation()
          
     return(
     <div className={styles.cont}>
@@ -31,7 +24,7 @@ const Detail = (props)=>{
                 </div>
                 ) : (
                 <>
-            <button className={styles.submitBtn} onClick={()=> navigate(-1)}><span>Volver</span></button>
+            <button className={styles.submitBtn} onClick={()=> navigate("/home")}><span>Volver</span></button>
         <div className={styles.container}>
             <div>
                 <h1 className={styles.name}><span>{detail.name}</span></h1>
@@ -43,7 +36,7 @@ const Detail = (props)=>{
                         <div className={styles.tipes}>
                             <div className={styles.typeDiv}>
                                 <img src={imageTypes[detail.types[0]]} alt="" />
-                                <span>{detail.types[0].toUpperCase()}</span>
+                                <span>{detail.types[0] && detail.types[0].toUpperCase()}</span>
                             </div>
                             {detail.types[1] 
                             ? (<div className={styles.typeDiv}>
