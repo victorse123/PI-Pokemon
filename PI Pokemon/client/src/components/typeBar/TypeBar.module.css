@@ -57,6 +57,7 @@
     transition: all 2s ease-in-out;
     -webkit-clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
     clip-path: polygon(6% 0, 93% 0, 100% 8%, 100% 86%, 90% 89%, 88% 100%, 5% 100%, 0% 85%);
+    z-index: 99999999999;
   }
   
 .neonBtn .span {

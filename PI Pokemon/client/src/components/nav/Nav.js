@@ -28,11 +28,11 @@ const Nav = (props)=>{
                         <span></span>
                         <span></span>  
                     </label>
-                )} 
+                )}
             </div>
             <div className={styles.barContai}>
                 <NavLink className={styles.submitBtn} to={'/home'}><span>Home</span></NavLink>
-                <NavLink className={styles.submitBtn} to={'/create'}><span>Create</span></NavLink>
+                <NavLink className={styles.submitBtn} to={'/create'}><span>Crear</span></NavLink>
                 {location.pathname === "/home" && 
                     <SearchBar onSearch={(pok) => props.onSearch(pok)}/>
                 }

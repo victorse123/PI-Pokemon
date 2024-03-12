@@ -46,7 +46,7 @@ const Cards = (props)=>{
     }
     
     const handlerData = (e)=>{
-        console.log(e.target.checked);
+      
         // Filtra los Pokémon según si fueron creados en la base de datos o no
         dispatch(filterDB(e.target.checked))
         setPagina(1)

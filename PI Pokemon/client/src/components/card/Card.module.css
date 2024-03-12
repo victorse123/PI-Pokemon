@@ -21,7 +21,6 @@
     text-shadow: -2px -6px 4px rgba(251, 255, 0, 0.743);
   }
   
-  
   .progresDiv{
       display: flex;
       align-items: center;
@@ -39,11 +38,7 @@
     position: absolute;
     left: 13px;  
   }
-  
-  
-  
-  
-  
+
   .imgDefault{
     display: flex;
     justify-content: center;
@@ -82,16 +77,14 @@
   }
   
   :root {
-      --color1: rgb(0, 0, 0);
-      --color2: rgb(97, 97, 97);
+      /* --color1: rgb(0, 0, 0);
+      --color2: rgb(97, 97, 97); */
       --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
-      --poke1: rgb(171, 170, 255);
-      --poke2: #fefa86;
+      /* --poke1: rgb(171, 170, 255);
+      --poke2: #fefa86; */
       --pokefront: url(https://media.istockphoto.com/id/1133058917/es/foto/fondo-blanco-negro-y-rojo-abstracto.jpg?s=170667a&w=0&k=20&c=PA_5G3MqJ9Qo_fcZ7YOiS4s7z7-Xd6LRl4bO7aZBOSw=);
       
     }
-    
-    
     
     .card {  
       width: 250px;
@@ -192,7 +185,7 @@
       transition: none;
     }
     
-    
+/*     
     
     .card {
       transition: none;
@@ -207,7 +200,7 @@
           transition: none;
           animation: holoSparkle 12s ease 0s 1;
         } 
-        
+         */
   
          
     

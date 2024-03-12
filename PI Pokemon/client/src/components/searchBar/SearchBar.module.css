@@ -16,7 +16,7 @@
   
   .submitBtn:hover {
     transition: 0.3s;
-    background: linear-gradient(90deg, #f60808 0%, #fbfb3f 100%);
+    background: transparent;
     cursor: pointer;
   }
   
@@ -36,7 +36,7 @@
   .submitBtn:hover span {
     background: #2E2E2E;
     /* -webkit-background-clip: text; */
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: #fdfdfd;
     transition: 0.3s;
   }
   
