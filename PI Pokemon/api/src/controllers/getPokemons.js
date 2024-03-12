@@ -3,13 +3,13 @@ const { Pokemon, Type } = require("../db");
 
 const getPokemons = async (req, res) => {
     try {
-        console.log('Entrando en getPokemons');
+       
         const pokApi = await getPokemonApi();
         const pokDb = await getPokemonDB();
-        console.log('Salida de getPokemons');
+       
         return pokApi.concat(pokDb);
     } catch (error) {
-        console.log('Error en getPokemons:', error);
+       
         res.status(400).json({ error: error.message });
     }
 };
@@ -24,8 +24,7 @@ const getPokemonDB = async (req, res) => {
             },
         });
 
-        // Agregar logs para rastreo
-        console.log("Pokemones de la base de datos:", pokemonesDB);
+       
 
         const filterPoke = pokemonesDB.map((e) => {
             return {
@@ -42,9 +41,6 @@ const getPokemonDB = async (req, res) => {
                 createdDB: e.createdDB,
             };
         });
-
-        // Agregar logs para rastreo
-        console.log("Pokemones filtrados:", filterPoke);
 
         return filterPoke;
     } catch (error) {
