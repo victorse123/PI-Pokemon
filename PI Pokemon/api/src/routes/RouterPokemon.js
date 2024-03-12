@@ -5,16 +5,24 @@ const postPokemon = require("../controllers/postPokemon");
 const {Type} = require("../db");
 
 const router = Router();
+
+// Ruta para buscar Pokémon por nombre o obtener todos los Pokémon
 router.get("/", async (req, res) => {
 
     const {name} = req.query
     try {
+        const pokemons = await getPokemons()
         if(name) {
-            const poke = await getPokemonNameId({name})
-            return res.json(poke)
+            // Buscar Pokémon por nombre si se proporciona un nombre en la consulta
+            const poke = await pokemons.filter(pok => pok.name.toLowerCase().startsWith(name.toLowerCase()))
+            if( poke.length > 0 ) {
+            res.status(200).json(poke) }
+            else {
+                res.status(404).json("not found")
+            }
+
         } else {
-            console.log("paso por All");
-            const pokemons = await getPokemons()
+            
             return res.json(pokemons)
         }
     } catch (error) {
@@ -22,26 +30,13 @@ router.get("/", async (req, res) => {
     }
 });
 
-// router.get('/:name', async (req, res) => {
-//     const { name } = req.params;
-  
-//     try {
-//       // Lógica para buscar en la base de datos o hacer una llamada a la API
-//       const pokemon = await getPokemonByName(name);
-  
-//       // Envía la respuesta al cliente
-//       res.status(200).json(pokemon);
-//     } catch (error) {
-//       console.error('Error en la búsqueda del Pokémon:', error);
-//       res.status(500).json({ error: 'Error en la búsqueda del Pokémon' });
-//     }
-//   });
-
+// Ruta para buscar Pokémon por ID
 router.get("/:id", async (req, res) =>{
    
     const {id} = (req.params);
   
     try {
+        // Buscar Pokémon por ID
         const pokeID = await getPokemonNameId(id)
         res.status(200).json(pokeID)
     } catch (error) {
@@ -49,62 +44,7 @@ router.get("/:id", async (req, res) =>{
     }
 });
 
-// router.post("/", async (req, res) => {
-//     console.log(req.body);
-//     try {
-//         let newPoke = req.body;
-//         // Llama a la función postPokemon directamente
-//         await postPokemon(newPoke, res);
-        
-//         // Verifica que newPoke.type no sea indefinido antes de buscar en la base de datos
-//         if (newPoke.type) {
-//             // Busca un tipo de Pokémon en la base de datos (DB)
-//             let typesDb = await Type.findAll({ where: { name: newPoke.type } });
-//             // Se asocia el Pokémon a la base de datos (DB)
-//             // Si postPokemon maneja la asociación, esta línea puede no ser necesaria aquí
-//             // pokeCreated.addType(typesDb);
-//         }
-        
-//         // Envía la respuesta de éxito solo una vez, fuera del bloque try-catch
-//         // res.status(201).send("Pokemon creado correctamente");
-//     } catch (error) {
-//         console.log(error);
-//         res.status(500).json({ error: error.message });
-//     }
-// });
-
-
-// router.post('/', async (req, res) => {
-//     console.log(req.body);
-//     try {      
-//         let newPok = req.body;        
-//         let pokCreated = await postPokemon(newPok)
-//         console.log(pokCreated);
-//         //busco tipo de pokemon de la DB..
-//         let typesDb = await Type.findAll({ where: { name: newPok.type } });
-//         //asocio el pokemon a la DB
-//         pokCreated.addType(typesDb);
-//         res.status(201).send('Pokemon Creado');
-        
-//     } catch (error) {
-//         res.status(500).json({error: error.messaje})
-//         console.log(error);
-//     }
-// });
-
-// router.post('/', async (req, res) => {
-//     console.log(req.body);
-//     try {      
-//         let newPok = req.body;        
-//         let {pokCreated} = await postPokemon(newPok);
-//         res.status(201).send('Pokemon Creado');
-        
-//     } catch (error) {
-//         res.status(500).json({error: error.message})
-//         console.log(error);
-//     }
-// });
-
+// Ruta para crear un nuevo Pokémon
 router.post('/', async (req, res) => {
     console.log(req.body);
     try {      
