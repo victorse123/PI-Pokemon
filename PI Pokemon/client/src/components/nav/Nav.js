@@ -21,14 +21,14 @@ const Nav = (props)=>{
     return(
         <div className={styles.container}>
             <div>
-                {/* {location.pathname === "/home" && (
+                {location.pathname === "/home" && (
                     <label className={styles.burger} htmlFor="burger">
                         <input onClick={onTypes} type="checkbox" id="burger"/>
                         <span></span>
                         <span></span>
                         <span></span>  
                     </label>
-                )} */}
+                )} 
             </div>
             <div className={styles.barContai}>
                 <NavLink className={styles.submitBtn} to={'/home'}><span>Home</span></NavLink>
