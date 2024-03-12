@@ -6,19 +6,31 @@ import styles from '../detail/Detail.module.css'
 import { imageTypes } from "../../Image/imageTypes";
 import { imageImg } from "../../Image/imageImg";
 
-const Detail = ()=>{
-    const {detail} = useSelector((state)=> state)
-    const dispatch = useDispatch()
+const Detail = (props)=>{
+    // Obtiene el dispatch de Redux
+    const dispatch = useDispatch()  
+
+     // Obtiene la información del estado utilizando useSelector
+    const {detail} = useSelector((state)=> state.detail)
+    
+    // Obtiene el ID de los parámetros de la URL
+    const {idDetail} = useParams();
+
     const navigate = useLocation()
-    const {idDetail} = useParams()
-        
+
+    // Dispara la acción para obtener detalles del pokemon al montar o actualizar el componente
     useEffect(()=>{
         console.log(dispatch(addPokDetail(idDetail)));        
     },[dispatch, idDetail])   
          
     return(
     <div className={styles.cont}>
-            { !detail.name ? (<div><img src={imageImg.loanding} alt="" /></div>) : (<>
+            { !detail || !detail.name ? (
+            <div>
+                <img src={imageImg.loanding} alt="" />
+                </div>
+                ) : (
+                <>
             <button className={styles.submitBtn} onClick={()=> navigate(-1)}><span>Volver</span></button>
         <div className={styles.container}>
             <div>

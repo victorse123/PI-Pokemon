@@ -19,9 +19,9 @@ const TypeBar = (props)=>{
         setPagina(1)
 
         // Desmarcar el tipo después de 10 segundos
-        
+        const checkbox1 = document.getElementById(e.target.value)
         setTimeout(() => {
-            e.target.checked = false;
+            if(checkbox1.checked) checkbox1.checked = false
         }, 10000);
     };
     
@@ -32,7 +32,7 @@ const TypeBar = (props)=>{
          {/* Opción para mostrar todos los tipos */}
         <input
                         className={Styles.inputBtn}
-                         
+                        onChange={handlerType} 
                         type="radio" 
                         id='todos' 
                         name="valueIs-radio"  
@@ -41,7 +41,6 @@ const TypeBar = (props)=>{
                     <label
                         className={Styles.neonBtn} 
                         htmlFor='todos'
-                        onClick={handlerType}
                     >
                         <span className={Styles.span}></span>
                         <span className={Styles.txt}>TODOS</span>
@@ -51,7 +50,7 @@ const TypeBar = (props)=>{
             return (<div key={t.id}>
                     <input
                         className={Styles.inputBtn}
-                         
+                        onChange={handlerType} 
                         type="radio" 
                         id={t.name} 
                         name="valueIs-radio"  
@@ -60,7 +59,6 @@ const TypeBar = (props)=>{
                     <label
                         className={Styles.neonBtn} 
                         htmlFor={t.name}
-                        onClick={handlerType}
                     >
                         <span className={Styles.span}></span>
                         <span className={Styles.txt}>{(t.name).toUpperCase()}</span>

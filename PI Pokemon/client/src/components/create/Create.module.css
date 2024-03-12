@@ -23,8 +23,8 @@
 .inputDiv{
     display: flex;
     align-items: center;
-    width: 400px;
-    height: 40px;
+    width: 550px;
+    height: 60px;
     justify-content: space-between
 }
 .errors{
@@ -35,7 +35,7 @@
 .containerForm span {
   font-weight: 800;
   letter-spacing: 1px;
-  background: linear-gradient(90deg, #f60808 0%, #fbfb3f 100%);
+  background: linear-gradient(90deg, #f60808 0%, #ffffff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -88,8 +88,8 @@
   }
   
   .checkBox:hover {
-    background:linear-gradient(90deg, #fbfb3f 0%, #f60808 100%);
-    color: rgb(255, 2, 2);
+    background:linear-gradient(90deg, #ffffff 0%, #f60808 100%);
+    color: rgb(6, 6, 6);
     box-shadow: rgba(0, 0, 0, 0.23) 0px -4px 1px 0px inset, rgba(255, 255, 255, 0.17) 0px -1px 1px 0px, rgba(0, 0, 0, 0.17) 0px 2px 4px 1px;
   }
   
