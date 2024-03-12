@@ -57,7 +57,8 @@ export function addPokemon(name){
   return async (dispatch) => {
     try {
       const {data} = await axios.get(endpoint)
-        return dispatch({
+        console.log(data)
+      return dispatch({
           type: GET_POKEMON_NAME,
           payload: data
         })      
@@ -67,20 +68,6 @@ export function addPokemon(name){
   }
 }
 
-// export function addPokDetail(id){
-//   const endpoint = 'http://localhost:3001/pokemon/'+id;
-//   return async (dispatch) => {
-//     try {
-//       const {data} = await axios.get(endpoint)
-//         return dispatch({
-//           type: ADD_POKEMON_DETAIL,
-//           payload: data
-//         })      
-//     } catch (error) {
-//       console.log(error.message);
-//     }
-//   }
-// }
 
 export function addPokDetail(id) {
   return async (dispatch) => {

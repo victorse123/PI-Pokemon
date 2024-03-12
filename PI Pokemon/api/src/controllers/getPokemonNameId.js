@@ -62,7 +62,7 @@
 const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 
-const getPokemonNameId = async (req, res) => {
+const getPokemonNameId = async () => {
     let { id, name } = req.params; // Corrección aquí
     let urlGet;
     try {
