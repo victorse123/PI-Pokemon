@@ -4,9 +4,10 @@ const RouterType = require("./RouterType");
 
 const router = Router();
 
-// Configurar los routers
+// Configurarion de los routers
 router.use("/pokemon", RouterPokemon);
 router.use("/tipo", RouterType);
+
 
 
 module.exports = router;
