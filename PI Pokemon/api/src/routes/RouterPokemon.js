@@ -2,7 +2,6 @@ const { Router } = require("express");
 const getPokemons = require("../controllers/getPokemons");
 const getPokemonNameId = require("../controllers/getPokemonNameId");
 const postPokemon = require("../controllers/postPokemon");
-// const getTypePokemon = require("../controllers/getTypePokemon")
 const {Type} = require("../db");
 
 const router = Router();
@@ -50,7 +49,7 @@ router.post('/', async (req, res) => {
     console.log(req.body);
     try {      
         let newPok = req.body;        
-        let pokCreated = await postPokemon(newPok);
+        let pokCreated = await postPokemon(newPok, res); // Pasa res al controlador postPokemon
 
         // Busca los tipos en la base de datos (DB)
         let typesDb = await Type.findAll({ where: { name: newPok.type } });
