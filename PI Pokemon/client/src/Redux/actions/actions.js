@@ -29,7 +29,7 @@ export function addAllTypes() {
   const endpoint = "http://localhost:3001/tipo";
   return async function (dispatch) {
     let { data } = await axios(endpoint);
-    console.log(data);
+   
     dispatch({
       type: GET_POKEMON_TYPES,
       payload: data,
@@ -47,7 +47,7 @@ export function postPokemon(newPoke) {
         payload: createPok,
       });
     } catch (error) {
-      alert("Verificar si Pokemon ya Existe");
+      alert("Verificar si Pokemon se creo exitosamente");
     }
   };
 }
