@@ -32,15 +32,14 @@ const Create = () => {
         speed: '',
         height: '',
         weight: '',
-        imageDefault: '',
-        type:[]
+        imageDefault: ''
     })
 
     // Manejar cambios en los inputs
     const handleChange = (e)=>{
         let{value, name} = e.target;
         if (name === 'weight' || name === 'height') value = Math.ceil(value/10);
-        console.log(value, name);
+       
 
          // Actualizar el estado del nuevo Pokémon y realizar validación
         setNewPokemon({...newPokemon, [name]:value})
@@ -74,7 +73,7 @@ const Create = () => {
     // Se ejecutara cada vez que haya cambios 
     // en las dependencias especificas, en este caso en newPokemon y errors
     useEffect(()=>{
-        console.log('Actualizo Estados');
+      
     },[newPokemon, errors])
     
     // Manejar envío del formulario
@@ -83,7 +82,7 @@ const Create = () => {
 
         // Realizar validación antes de enviar los datos
         let errores = validate(newPokemon);
-        console.log('verifico errores', errores);
+       
 
         // Verificar si hay errores y tipos seleccionados
         if(Object.keys(errores).length === 0 && (newPokemon.type).length !== 0){
