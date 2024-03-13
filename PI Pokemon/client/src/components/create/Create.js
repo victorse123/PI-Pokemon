@@ -32,7 +32,8 @@ const Create = () => {
         speed: '',
         height: '',
         weight: '',
-        imageDefault: ''
+        imageDefault: '',
+        type:[]
     })
 
     // Manejar cambios en los inputs
