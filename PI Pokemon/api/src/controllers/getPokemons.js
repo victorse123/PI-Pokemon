@@ -24,8 +24,6 @@ const getPokemonDB = async (req, res) => {
             },
         });
 
-       
-
         const filterPoke = pokemonesDB.map((e) => {
             return {
                 id: e.id,
@@ -42,6 +40,7 @@ const getPokemonDB = async (req, res) => {
             };
         });
 
+       
         return filterPoke;
     } catch (error) {
         res.status(400).json({ error: error.message });
@@ -54,7 +53,7 @@ const getPokemonApi = async (req, res) => {
         const { results } = data;
         const pokePromis = results.map((e) => e.url);
         const allPoke = await Promise.all(pokePromis.map((url) => axios.get(url)));
-        console.log("cantidad de pokemons", allPoke.length);
+      
         const pokemonsApi = allPoke.map((obj) => {
             let e = obj.data;
             let pokemon = {
