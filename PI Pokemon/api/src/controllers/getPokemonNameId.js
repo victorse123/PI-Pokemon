@@ -5,11 +5,12 @@ const getPokemonNameId = async (id) => {
     let urlGet;
     try {
        
+
         if (id) {
             if (id.length > 4) {
-               
+              
                 const pokeDb = await getPokeDbId(id);
-               
+              
                 return pokeDb; 
             }
             urlGet = `https://pokeapi.co/api/v2/pokemon/${id}`;
@@ -32,7 +33,7 @@ const getPokemonNameId = async (id) => {
             imageDefault: data.sprites.other.dream_world.front_default,
             types: data.types.map((t) => t.type.name),
         };
-       
+        
         return pokemon; 
     } catch (error) {
         return({ error: error.message });
@@ -52,7 +53,7 @@ const getPokeDbId = async (id) => {
         dataValues.name = dataValues.name.charAt(0).toUpperCase() + dataValues.name.slice(1);
         dataValues.types = dataValues.types.map((e) => e.name);
 
-        console.log(dataValues);
+      
         return dataValues;
     } catch (error) {
         console.error(error);
